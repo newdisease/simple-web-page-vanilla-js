@@ -19,30 +19,25 @@
     }
 
     function modal(triggerSelector, modalSelector, modalTimerId) {
-        // Modal
-        const modalTrigger = document.querySelectorAll(triggerSelector), // кнопки открытия модального окна
-            modal = document.querySelector(modalSelector); // модальное окно
+        const modalTrigger = document.querySelectorAll(triggerSelector),
+            modal = document.querySelector(modalSelector);
 
-        // показать модальное окно при нажатии на кнопки "Связаться с нами"
         modalTrigger.forEach(item => {
             item.addEventListener('click', () => openModal(modalSelector, modalTimerId));
         });
 
-        // скрыть модальное окно по клику на пустое место
         modal.addEventListener('click', (event) => {
             if (event.target === modal || event.target.getAttribute('data-close') == '') {
                 closeModal(modalSelector);
             }
         });
 
-        // скрыть модальное окно по нажатию на esc
         document.addEventListener('keydown', (event) => {
             if (event.code === 'Escape') {
                 closeModal(modalSelector);
             }
         });
 
-        // показать модальное окно после скролла страницы до конца
         function showModalByScroll() {
             if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight - 1) {
                 openModal(modalSelector, modalTimerId);

@@ -2,7 +2,7 @@ import {
     getResource
 } from '../services/services';
 
-function cards() {
+function cards(url) {
     // menu items
     class MenuItem {
         constructor(src, alt, title, descripton, price, parentSelector) {
@@ -28,7 +28,7 @@ function cards() {
         }
     }
 
-    getResource('http://localhost:3000/menu')
+    getResource(url)
         .then(data => {
             data.forEach(({
                 img,

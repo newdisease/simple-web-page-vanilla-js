@@ -6,7 +6,7 @@ import {
     postData
 } from '../services/services';
 
-function forms(formSelector, modalTimerId) {
+function forms(formSelector, modalTimerId, url) {
     // Forms
     const forms = document.querySelectorAll(formSelector);
 
@@ -71,7 +71,7 @@ function forms(formSelector, modalTimerId) {
         }, 4000);
     }
 
-    fetch('http://localhost:3000/menu').then(data => data.json());
+    fetch(url).then(data => data.json());
 }
 
 export default forms;

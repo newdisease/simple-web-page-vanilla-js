@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
     timer('.timer', '2022-08-31');
     modal('[data-modal]', ".modal", modalTimerId);
     calc();
-    forms('form', modalTimerId);
+    forms('form', modalTimerId, 'http://localhost:3000/menu');
     slider({
         slide: '.offer__slide',
         prevArrow: '.offer__slider-prev',
@@ -28,6 +28,6 @@ window.addEventListener('DOMContentLoaded', () => {
         field: '.offer__slider-inner',
         container: '.offer__slider'
     });
-    cards();
+    cards('http://localhost:3000/menu');
 
 });
